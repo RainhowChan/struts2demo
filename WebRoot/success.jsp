@@ -28,5 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     ${user.username }<br>
     ${user.gender }<br>
     ${user.birthday }<br>
+    <s:i18n name="com.rainhowchan.package">
+    	<s:param name="welcome"/>
+    </s:i18n>
   </body>
 </html>

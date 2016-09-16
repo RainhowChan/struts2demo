@@ -42,11 +42,11 @@ em.success {
 	$(function() {
 		$("#form1").validate({
 			rules : {
-				/* username : {
+				username : {
 					required : true,
 					minlength : 4,
 					maxlength : 8
-				}, */
+				},
 				password : {
 					required : true,
 					minlength : 4,
