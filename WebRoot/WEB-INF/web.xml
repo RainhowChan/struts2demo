@@ -11,7 +11,7 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-  
+
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
@@ -20,5 +20,8 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
+<!--   <error-page>
+  	<error-code>404</error-code>
+  	<location>/actionError.jsp</location>
+  </error-page> -->
 </web-app>

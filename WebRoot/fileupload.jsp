@@ -1,6 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
-
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -11,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'success.jsp' starting page</title>
+    <title>My JSP 'fileupload.jsp' starting page</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -21,17 +19,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-    success<br><br>
-    ${user.username }<br>
-    ${user.gender }<br>
-    ${user.birthday }<br>
-    <s:i18n name="com.rainhowchan.package">
-    	<s:text name="welcome">
-    		<s:param>RainhowChan</s:param>
-    	</s:text>
-    </s:i18n>
+    <form action="${pageContext.request.contextPath }/upload" method="post" enctype="multipart/form-data">
+    	<input type="file" name="upload">
+    	<input type="submit" value="上傳">
+    </form>
   </body>
 </html>

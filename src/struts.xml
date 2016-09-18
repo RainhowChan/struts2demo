@@ -5,11 +5,41 @@
 
 <struts>
 <constant name="struts.custom.i18n.resources" value="message"></constant>
+<constant name="struts.custom.i18n.resources" value="com.rainhowchan.action.UploadAction"></constant>
 	<package name="default" namespace="/" extends="struts-default">
-
+		<interceptors>
+			<interceptor name="bookInteceptor" class="intecept.BookInterceptor">
+				<param name="excludemethods">query</param>
+				<param name="includeMethods">add,delete,update</param>
+			</interceptor>
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="bookInteceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+<!-- 		<default-action-ref name="acctionError"/> -->
+		<action name="acctionError">
+	           <result>/actionError.jsp</result>
+	       </action>
 		<action name="regist" class="com.rainhowchan.action.RegistAction">
 			<result>/success.jsp</result>
 			<result name="input">/regist.jsp</result>
+		</action>
+		<action name="login" class="com.rainhowchan.action.LoginAction">
+			<result name="input">/login.jsp</result>
+			<result>/book.jsp</result>
+		</action>
+		<action name="book_*" class="com.rainhowchan.action.BookAction" method="{1}">
+			<interceptor-ref name="myStack"/>
+			<result name="login">/login.jsp</result>
+		</action>
+		<action name="upload" class="com.rainhowchan.action.UploadAction">
+			<result>/success.jsp</result>
+			<result name="input">/login.jsp</result>
+			<interceptor-ref name="defaultStack">
+				<param name="maximumSize">2097152</param>
+				<param name="fileUpload.allowedExtensions">text,mp3,doc</param>
+			</interceptor-ref>
 		</action>
 	</package>
 </struts>
