@@ -24,8 +24,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     <form action="${pageContext.request.contextPath }/upload" method="post" enctype="multipart/form-data">
-    	<input type="file" name="upload">
-    	<input type="submit" value="上傳">
+    	<input type="file" name="upload"><br><br>
+    	<input type="file" name="upload"><br><br>
+    	<input type="file" name="upload"><br><br>
+    	<input type="submit" value="上傳"><br><br>
     </form>
   </body>
 </html>
