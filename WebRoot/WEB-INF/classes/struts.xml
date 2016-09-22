@@ -7,6 +7,7 @@
 <constant name="struts.custom.i18n.resources" value="message"></constant>
 <constant name="struts.custom.i18n.resources" value="com.rainhowchan.action.UploadAction"></constant>
 <constant name="struts.multipart.maxSize" value="20971520"></constant>
+<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
 	<package name="default" namespace="/" extends="struts-default">
 		<interceptors>
 			<interceptor name="bookInteceptor" class="intecept.BookInterceptor">
@@ -48,6 +49,15 @@
 				<param name="contentDisposition">attachment;filename=${downloadFileName}</param>
 				<param name="inputStream">${inputStream}</param>
 			</result>
+		</action>
+		<action name="ognl1" class="com.rainhowchan.action.OgnlAction">
+			<result>/success.jsp</result>
+		</action>
+		<action name="ognl2" class="com.rainhowchan.action.OgnlAction2">
+			<result>/success.jsp</result>
+		</action>
+		<action name="ognl3" class="com.rainhowchan.action.OgnlAction3">
+			<result>/index.jsp</result>
 		</action>
 	</package>
 </struts>

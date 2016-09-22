@@ -25,9 +25,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     success<br><br>
-    ${user.username }<br>
+  <%--   ${user.username }<br>
     ${user.gender }<br>
-    ${user.birthday }<br>
+    ${user.birthday }<br> --%>
+    <%-- <s:property value="%{[0].name}"/> --%>
+    <%-- <s:property value="#request.request"/> --%>
+    <hr>
+    <s:iterator value="books" var="b">
+    	<s:property value="#b.name"/><br>
+    	<s:property value="#b.price"/><br>
+    	<s:property value="#b.publish"/><br>
+    </s:iterator>
+    <hr>
+       	<s:iterator value="bookList">
+	    	<s:property value="name"/><br>
+	    	<s:property value="price"/><br>
+	    	<s:property value="publish"/><br>
+    	</s:iterator>
+    <hr>
+    	<s:iterator value="[0].top">
+	    	<s:property value="name"/><br>
+	    	<s:property value="price"/><br>
+	    	<s:property value="publish"/><br>
+    	</s:iterator>
+    <hr>
+    <s:property value="book.name"/>
+    <s:debug/>
+    
     <s:i18n name="com.rainhowchan.package">
     	<s:text name="welcome">
     		<s:param>RainhowChan</s:param>

@@ -1,4 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -18,9 +19,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
   </head>
   
   <body>
-    This is my JSP page. <br>
+   
+     <hr>
+     	<s:property value="#attr.username"/>
+     	<s:property value="#parameters.username"/>
+     	<s:property value="#parameters.password"/>
+     <%-- 	
+     	<s:iterator value="#parameters" var="para">
+     		<s:property value="#para.username"/>
+     		<s:property value="#para.password"/>
+     	</s:iterator>
+     	 --%>
+     	 
+     	 <s:radio list="#{'male':'男','female':'女'}" name="sex"></s:radio>
+     	 <s:select list="#{'北京':'beijing','湖北':'武汉' }"></s:select>
+     <hr>
+	     <s:iterator value="ps.{name}" var="p">
+	     	<%-- <s:property value="#p.name"/>
+	     	<s:property value="#p.price"/> --%>
+	     	<s:property value="#p"/><br>
+	     </s:iterator>
+     
+     <hr>
+     <table style="width:400px;margin:auto;" class="">
+      <s:iterator value="ps.{?#this.price>1000}" var="p">
+      <tr>
+     	<td><s:property value="#p.name"/></td>
+     	<td><s:property value="#p.price"/></td>
+     	<td><s:property value="#p.count"/></td>
+     </tr>
+     </s:iterator>
+     
+     
+     </table>
+    
+     <s:debug/>
   </body>
 </html>
