@@ -8,7 +8,7 @@
 <constant name="struts.custom.i18n.resources" value="com.rainhowchan.action.UploadAction"></constant>
 <constant name="struts.multipart.maxSize" value="20971520"></constant>
 <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
-	<package name="default" namespace="/" extends="struts-default">
+	<package name="default" namespace="/" extends="json-default">
 		<interceptors>
 			<interceptor name="bookInteceptor" class="intecept.BookInterceptor">
 				<param name="excludemethods">query</param>
@@ -58,6 +58,9 @@
 		</action>
 		<action name="ognl3" class="com.rainhowchan.action.OgnlAction3">
 			<result>/index.jsp</result>
+		</action>
+		<action name="json" class="com.rainhowchan.action.JsonAction">
+			<result type="json">/json.jsp</result>
 		</action>
 	</package>
 </struts>
